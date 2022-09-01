@@ -2,9 +2,10 @@ require('dotenv').config();
 
 const express = require('express');
 const cors = require('cors');
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
 const PORT = process.env.PORT;
+const controller = require('./src/controllers');
 
 mongoose.connect(process.env.dbURI)
 .then(() => console.log('mongo successfully connected'))
@@ -19,5 +20,6 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+app.get('/restaurants', controller.rest.read)
 
 app.listen(PORT, () => console.log(`App listening on port ${PORT}`));
