@@ -1,7 +1,7 @@
-const rest = require('./restaurants')
+const restSearch = require('./restSearch')
 
 const controller = {
-  rest
+  restSearch
 }
 
 module.exports = controller
