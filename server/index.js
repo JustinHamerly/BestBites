@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 
 const PORT = process.env.PORT;
 const controller = require('./src/controllers');
+const logger = require('./src/middleware/logger');
 
 mongoose.connect(process.env.dbURI)
 .then(() => console.log('mongo successfully connected'))
@@ -19,6 +20,7 @@ const app = express();
 
 app.use(express.json());
 app.use(cors());
+app.use(logger);
 
 app.get('/restSearch', controller.restSearch.read);
 
