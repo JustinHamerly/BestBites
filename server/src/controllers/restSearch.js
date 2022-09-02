@@ -1,6 +1,6 @@
 const axios = require('axios');
 
-const getRests = async (req, res) => {
+const searchRests = async (req, res) => {
   const search = req.query.search;
   const location = req.query.loc;
   const key = process.env.YELP_API_KEY;
@@ -19,7 +19,7 @@ const getRests = async (req, res) => {
   
   try {
     const yelpResponse = await axios(config);
-    const data = yelpResponse.data.businesses.map(r => new Restaurant(r))
+    const data = yelpResponse.data.businesses.map(r => new Restaurant(r));
     res.status(200).send(data);
   } catch (error) {
     res.status(500).send(error.message);
@@ -32,11 +32,13 @@ class Restaurant{
     this.name = restaurant.name,
     this.img = restaurant.image_url,
     this.url = restaurant.url,
+    this.categories = restaurant.categories,
     this.geo = restaurant.coordinates,
-    this.address = restaurant.location.display_address
+    this.price = restaurant.price,
+    this.location = restaurant.location
   }
 }
 
 module.exports = {
-  read: getRests,
+  read: searchRests,
 }

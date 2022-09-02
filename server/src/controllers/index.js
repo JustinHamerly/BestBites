@@ -1,7 +1,9 @@
-const rest = require('./restaurants')
+const restSearch = require('./restSearch');
+const restRoutes = require('./rest');
 
 const controller = {
-  rest
+  restSearch,
+  restRoutes
 }
 
 module.exports = controller
