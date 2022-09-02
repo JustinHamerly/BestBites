@@ -20,7 +20,30 @@ const createRest = async (req, res) => {
   }
 }
 
+const updateRest = async (req, res) => {
+  try {
+    const id = request.params.id;
+    const data = {...req.body};
+    const updated = await Restaurant.findByIdAndUpdate(id,data);
+    res.send(updated).status(200);
+  } catch (error) {
+    res.send(error.message).status(500);
+  }
+}
+
+const deleteRest = async (req, res) => {
+  try {
+    const id = request.params.id;
+    await Restaurant.deleteOne({ _id: id})
+    res.send('successfully deleted').status(200);
+  } catch (error) {
+    res.send(error.message).status(500);
+  }
+}
+
 module.exports = {
   getRests,
-  createRest
+  createRest,
+  updateRest,
+  deleteRest
 }
