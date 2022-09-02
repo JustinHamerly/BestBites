@@ -24,9 +24,9 @@ app.use(logger);
 
 app.get('/restSearch', controller.restSearch.read);
 
-app.get('/rest', controller.restRoutes.getRests);
+app.get('/rest/:email', controller.restRoutes.getRests);
 app.post('/rest', controller.restRoutes.createRest);
-app.put('/rest', controller.restRoutes.updateRest);
-app.delete('/rest', controller.restRoutes.deleteRest);
+app.put('/rest/:id', controller.restRoutes.updateRest);
+app.delete('/rest/:id', controller.restRoutes.deleteRest);
 
 app.listen(PORT, () => console.log(`App listening on port ${PORT}`));

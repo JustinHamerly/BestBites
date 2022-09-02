@@ -2,7 +2,7 @@ const Restaurant = require('../models/RestSchema');
 
 const getRests = async (req, res) => {
   try {
-    const email = req.query.email;
+    const email = req.params.email;
     const userRests = await Restaurant.find({ email });
     res.status(200).send(userRests);
   } catch (error) {
