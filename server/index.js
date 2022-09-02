@@ -20,6 +20,8 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-app.get('/restaurants', controller.restSearch.read)
+app.get('/restSearch', controller.restSearch.read);
+app.get('/rest', controller.restRoutes.getRests);
+app.post('/rest', controller.restRoutes.createRest);
 
 app.listen(PORT, () => console.log(`App listening on port ${PORT}`));

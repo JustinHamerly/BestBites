@@ -1,7 +1,9 @@
-const restSearch = require('./restSearch')
+const restSearch = require('./restSearch');
+const restRoutes = require('./rest');
 
 const controller = {
-  restSearch
+  restSearch,
+  restRoutes
 }
 
 module.exports = controller
