@@ -5,7 +5,10 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 
 const PORT = process.env.PORT;
-const controller = require('./src/controllers');
+
+const restaurantSearch = require('./src/controllers/restSearch');
+const restaurantRoutes = require('./src/controllers/rest');
+
 const logger = require('./src/middleware/logger');
 
 mongoose.connect(process.env.dbURI)
@@ -22,11 +25,7 @@ app.use(express.json());
 app.use(cors());
 app.use(logger);
 
-app.get('/restSearch', controller.restSearch.read);
-
-app.get('/rest/:email', controller.restRoutes.getRests);
-app.post('/rest', controller.restRoutes.createRest);
-app.put('/rest/:id', controller.restRoutes.updateRest);
-app.delete('/rest/:id', controller.restRoutes.deleteRest);
+app.use(restaurantSearch);
+app.use(restaurantRoutes);
 
 app.listen(PORT, () => console.log(`App listening on port ${PORT}`));

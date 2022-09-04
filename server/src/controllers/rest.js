@@ -1,4 +1,9 @@
+const express = require('express');
+
+const router = express.Router()
+
 const Restaurant = require('../models/RestSchema');
+
 
 const getRests = async (req, res) => {
   try {
@@ -22,7 +27,7 @@ const createRest = async (req, res) => {
 
 const updateRest = async (req, res) => {
   try {
-    const id = request.params.id;
+    const id = req.params.id;
     const data = {...req.body};
     const updated = await Restaurant.findByIdAndUpdate(id,data);
     res.send(updated).status(200);
@@ -41,9 +46,9 @@ const deleteRest = async (req, res) => {
   }
 }
 
-module.exports = {
-  getRests,
-  createRest,
-  updateRest,
-  deleteRest
-}
+router.get('/rest/:email', getRests)
+router.post('/rest', createRest);
+router.put('/rest/:id', updateRest);
+router.delete('/rest/:id', deleteRest);
+
+module.exports = router;

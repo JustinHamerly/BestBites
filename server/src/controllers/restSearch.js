@@ -1,4 +1,7 @@
 const axios = require('axios');
+const express = require('express');
+
+const router = express.Router()
 
 const searchRests = async (req, res) => {
   const search = req.query.search;
@@ -39,6 +42,6 @@ class Restaurant{
   }
 }
 
-module.exports = {
-  read: searchRests,
-}
+router.get('/restSearch', searchRests);
+
+module.exports = router;
