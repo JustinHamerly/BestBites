@@ -2,6 +2,10 @@
 
 ## Author: Justin Hamerly-Spain
 
+[Server Documentation](./server/README.md)
+
+[Client Documentation](./client/README.md)
+
 ### V.1.0.0
 
 ---
@@ -22,22 +26,11 @@ A one stop shop for decision making when unsure of where to eat tonight.  For ti
 
 |Type|List|
 |:--|:--|
-|Language and Libraries|Typescript, React, Node.js, Express|
-|Database and Deployment| MongoDB, Netlify (frontend), Heroku (backend)|
+|Language and Libraries|Typescript, JavaScript, React, Node.js, Express|
+|Database and Deployment| MongoDB (NoSQL Database), Netlify (frontend), Heroku (backend)|
 |Integrations| Auth0, YelpAPI, MapBox|
 
 ---
 
-### INSTALLATION
+### USER STORIES
 
-1. `npm install`
-2. `npm run dev`
-
-NPM Package Dependencies:
-
-- axios
-- cors
-- dotenv
-- express
-- jsonwebtoken
-- mongoose
