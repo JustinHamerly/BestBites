@@ -34,3 +34,8 @@ A one stop shop for decision making when unsure of where to eat tonight.  For ti
 
 ### USER STORIES
 
+---
+
+### UML
+
+![Version 1 UML](./img/Best-Bites-UML_v1.png)
