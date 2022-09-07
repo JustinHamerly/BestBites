@@ -14,6 +14,10 @@ const restSchema = new Schema({
   email: String,
 });
 
+const requiredFields = ['name', 'email', 'geo', 'price', 'location', 'img', 'url', 'yelpId', 'categories'];
+
+for ( let field of requiredFields ){ restSchema[field].required = true };
+
 const Restaurant = mongoose.model('Restaurant', restSchema);
 
 module.exports = Restaurant;
