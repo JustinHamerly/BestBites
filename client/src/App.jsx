@@ -1,9 +1,13 @@
+import LoginProvider from "./auth/LoginProvider"
+
 function App() {
 
   return (
-    <div className="App">
-     <h1>Best Bites</h1>
-    </div>
+    <LoginProvider>
+      <div className="App">
+        <h1>Best Bites</h1>
+      </div>
+    </LoginProvider>
   )
 }
 
