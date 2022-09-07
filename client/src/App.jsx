@@ -1,9 +1,17 @@
+import LoginProvider from "./auth/LoginProvider";
+import Auth from "./auth/Auth";
+import Login from './auth/Login'
+
 function App() {
 
   return (
-    <div className="App">
-     <h1>Best Bites</h1>
-    </div>
+    <LoginProvider>
+      <div className="App">
+        <Login />
+        <Auth>
+        </Auth>
+      </div>
+    </LoginProvider>
   )
 }
 
