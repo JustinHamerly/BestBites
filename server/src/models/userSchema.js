@@ -26,11 +26,13 @@ const userSchema = new Schema(
         }
       }
     },
-    methods: {
+    statics: {
       async authenticateBasic(username, password) {
         try {
           const user = await this.findOne({ username });
+          console.log(user)
           const isValid = await bcrypt.compare(password, user.password);
+          console.log(isValid)
           if (isValid) { return user };
           throw new Error('Invalid User')
         } catch (error) {
