@@ -13,7 +13,9 @@ const userSchema = new Schema(
     password: {
       type: String,
       required: true
-    },
+    }
+  },
+  {
     virtuals: {
       token: {
         get() {
@@ -23,9 +25,7 @@ const userSchema = new Schema(
           throw new Error('Do not set the token value');
         }
       }
-    }
-  },
-  {
+    },
     methods: {
       async authenticateBasic(username, password) {
         try {
@@ -51,11 +51,12 @@ const userSchema = new Schema(
   }
 )
 
-userSchema.pre('save', async (user) => {
-  const hashedPass = await bcrypt.hash(user.password, 10);
-  user.password = hashedPass;
+userSchema.pre('save', async function (next) {
+  const hashedPass = await bcrypt.hash(this.password, 10);
+  this.password = hashedPass;
+  next();
 })
 
-const User = mongoose.model('User', restSchema);
+const User = mongoose.model('User', userSchema);
 
 module.exports = User;
