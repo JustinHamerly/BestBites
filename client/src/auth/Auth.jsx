@@ -7,11 +7,7 @@ const Auth = (props) => {
 
   const [render, setRender] = useState(false);
 
-  useEffect(() => {
-    checkRender();
-  }, [])
-
-  checkRender = () => {
+  const checkRender = () => {
     try {
       setRender(context.loggedIn && (props.capability ? context.canProceed(props.capability) : true));
     } catch (error) {
@@ -20,8 +16,13 @@ const Auth = (props) => {
     }
   }
 
+  useEffect(() => {
+    checkRender();
+  }, [])
+
+
   return (
-    <div class='auth'>
+    <div className='auth'>
       {render && props.children}
     </div>
   )

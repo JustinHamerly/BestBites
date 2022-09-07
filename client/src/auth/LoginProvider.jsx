@@ -53,7 +53,7 @@ const LoginProvider = (props) => {
   }
 
   return (
-    <LoginContext.Provider value={{loggedIn, user, token}}>
+    <LoginContext.Provider value={{loggedIn, user, token, canProceed, login, logout}}>
       {props.children}
     </LoginContext.Provider>
   )
