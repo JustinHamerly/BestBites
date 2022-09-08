@@ -9,13 +9,17 @@ const LoginForm = (props) => {
         size="md"
         name="username"
         type="text"
-        placeholder="username">
+        value={props.user.username}
+        autoComplete="email"
+        placeholder="email">
       </Form.Control>
       <Form.Control
         onChange={props.handleChange}
+        value={props.user.password}
         size="md"
         name="password"
         type="text"
+        autoComplete="current-password"
         placeholder="password">
       </Form.Control>
       <Button type="submit" size="md">Login</Button>
