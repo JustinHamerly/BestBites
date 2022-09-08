@@ -20,7 +20,7 @@ const Auth = (props) => {
 
   useEffect(() => {
     checkRender();
-  }, [])
+  }, [context.loggedIn])
 
 
   return (

@@ -8,7 +8,7 @@ function App() {
     <LoginProvider>
       <div className="App">
         <Login />
-        <Auth capability="create">
+        <Auth>
         </Auth>
       </div>
     </LoginProvider>

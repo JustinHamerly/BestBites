@@ -1,7 +1,9 @@
 import React, { useContext, useState } from 'react';
-import { Button, Form } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 
 import { LoginContext } from './LoginProvider';
+
+import LoginForm from './LoginForm';
 
 const Login = () => {
 
@@ -10,13 +12,13 @@ const Login = () => {
   const [user, setUser] = useState({});
 
   const handleSubmit = (e) => {
-    e && e.preventDefault();
+    e.preventDefault();
     handleLogin(user);
   }
 
   const handleChange = (e) => {
     e.persist();
-    setUser(prev => ({...prev, [e.target.name]: e.target.value}));
+    setUser(prev => ({ ...prev, [e.target.name]: e.target.value }));
   }
 
   const handleLogin = (userObj) => {
@@ -24,23 +26,14 @@ const Login = () => {
   }
 
   return (
-    <Form onSubmit={handleSubmit}>
-      <Form.Control 
-        onChange={handleChange} 
-        size="md"
-        name="username"
-        type="text"
-        placeholder="username">
-      </Form.Control>
-      <Form.Control 
-        onChange={handleChange} 
-        size="md"
-        name="password"
-        type="text"
-        placeholder="password">
-      </Form.Control>
-      <Button type="submit" size="md">Login</Button>
-    </Form>
+    <>
+      {
+        context.loggedIn ?
+          <Button onClick={context.logout}>Logout</Button>
+        :
+          <LoginForm handleChange={handleChange} handleSubmit={handleSubmit} />
+      }
+    </>
   )
 }
 

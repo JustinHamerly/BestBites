@@ -16,7 +16,6 @@ const LoginProvider = (props) => {
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const loadToken = cookie.load('auth');
-    console.log(loadToken);
     const retreivedToken = params.get('token') || loadToken || null;
 
     validate(retreivedToken);
@@ -27,10 +26,16 @@ const LoginProvider = (props) => {
   //   return user?.capabilities?.includes(capability)
   // };
 
-  const login = (username, password) => {
-    axios.post(`${server}/login`, {}, {auth: {username, password}})
-      .then(res => validate(res?.data?.token))
-      .catch(console.error)
+  const login = async (username, password) => {
+    try {
+      let res = await axios.post(`${server}/login`, {}, {auth: {username, password}})
+      validate(res?.data?.token);
+    } catch (error) {
+      console.warn('bad password:', error.message);
+      alert(`wrong password, try again`, error.message)
+    }
+      // .then(res => validate(res?.data?.token))
+      // .catch(console.error)
   }
 
   const logout = () => {
