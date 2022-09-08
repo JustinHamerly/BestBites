@@ -22,9 +22,10 @@ const LoginProvider = (props) => {
     validate(retreivedToken);
   }, [])
 
-  const canProceed = (capability) => {
-    return user?.capabilities?.includes(capability)
-  };
+  //future role based access control
+  // const canProceed = (capability) => {
+  //   return user?.capabilities?.includes(capability)
+  // };
 
   const login = (username, password) => {
     axios.post(`${server}/login`, {}, {auth: {username, password}})
@@ -55,7 +56,7 @@ const LoginProvider = (props) => {
   }
 
   return (
-    <LoginContext.Provider value={{loggedIn, user, token, canProceed, login, logout}}>
+    <LoginContext.Provider value={{loggedIn, user, token, login, logout}}>
       {props.children}
     </LoginContext.Provider>
   )

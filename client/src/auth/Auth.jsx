@@ -9,9 +9,11 @@ const Auth = (props) => {
 
   const checkRender = () => {
     try {
-      setRender(context.loggedIn && (props.capability ? context.canProceed(props.capability) : true));
+      setRender(context.loggedIn);
+      // future access control
+      // setRender(context.loggedIn && (props.capability ? context.canProceed(props.capability) : true));
     } catch (error) {
-      console.log(context.canProceed(props.capability));
+      // console.log(context.canProceed(props.capability));
       console.warn('Not Authorized');
     }
   }
