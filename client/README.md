@@ -29,6 +29,30 @@
 
 ---
 
+## File Structure
+
+```text
+.
+├── LICENSE
+├── README.md
+├── index.html
+├── package-lock.json
+├── package.json
+├── public
+│   └── vite.svg
+├── src
+│   ├── App.jsx
+│   ├── auth
+│   │   ├── Auth.jsx
+│   │   ├── Login.jsx
+│   │   └── LoginProvider.jsx
+│   ├── index.css
+│   └── main.jsx
+└── vite.config.js
+```
+
+---
+
 ## State
 
 ---
