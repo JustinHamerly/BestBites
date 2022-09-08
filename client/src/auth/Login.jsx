@@ -29,7 +29,7 @@ const Login = () => {
     <>
       {
         context.loggedIn ?
-          <Button onClick={context.logout}>Logout</Button>
+          <Button onClick={() => context.logout()}>Logout</Button>
         :
           <LoginForm handleChange={handleChange} handleSubmit={handleSubmit} />
       }

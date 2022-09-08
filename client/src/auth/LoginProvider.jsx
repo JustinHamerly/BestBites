@@ -28,7 +28,7 @@ const LoginProvider = (props) => {
 
   const login = async (username, password) => {
     try {
-      let res = await axios.post(`${server}/login`, {}, {auth: {username, password}})
+      let res = await axios.post(`${server}/login`, {}, {auth: {username, password}});
       validate(res?.data?.token);
     } catch (error) {
       console.warn('bad password:', error.message);
@@ -52,8 +52,11 @@ const LoginProvider = (props) => {
   const validate = (token) => {
     try {
       const userObj = jwt_decode(token);
-      console.log(userObj);
-      handleLogin(true, userObj, token);
+      if(userObj){
+        handleLogin(true, userObj, token);
+      }else{
+        logout();
+      }
     } catch (error) {
       logout();
       console.log('Unable to validate token', error.message)
