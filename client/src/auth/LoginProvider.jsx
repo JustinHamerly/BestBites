@@ -1,9 +1,9 @@
 import React, { createContext, useState, useEffect } from "react";
 import cookie from 'react-cookies';
-import jwtDecode from "jwt-decode";
+import jwt_decode from "jwt-decode";
 import axios from "axios";
 
-const server = import.meta.env.REACT_APP_SERVER;
+const server = import.meta.env.VITE_SERVER;
 
 export const LoginContext = createContext();
 
@@ -16,6 +16,7 @@ const LoginProvider = (props) => {
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const loadToken = cookie.load('auth');
+    console.log(loadToken);
     const retreivedToken = params.get('token') || loadToken || null;
 
     validate(retreivedToken);
@@ -26,8 +27,7 @@ const LoginProvider = (props) => {
   };
 
   const login = (username, password) => {
-    let auth = base64.encode(username+ ':' + password);
-    axios.post(`${server}/login`, {authorization: `Basic ${auth}`})
+    axios.post(`${server}/login`, {}, {auth: {username, password}})
       .then(res => validate(res?.data?.token))
       .catch(console.error)
   }
@@ -37,6 +37,7 @@ const LoginProvider = (props) => {
   }
 
   const handleLogin = (l, u, t) => {
+    cookie.save('auth', token);
     setLoggedIn(l);
     setUser(u);
     setToken(t);
@@ -44,7 +45,8 @@ const LoginProvider = (props) => {
 
   const validate = (token) => {
     try {
-      const userObj = jwtDecode(token);
+      const userObj = jwt_decode(token);
+      console.log(userObj);
       handleLogin(true, userObj, token);
     } catch (error) {
       logout();
