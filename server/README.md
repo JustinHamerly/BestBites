@@ -31,6 +31,34 @@
 
 ---
 
+## File Structure
+
+```text
+.
+├── LICENSE
+├── README.md
+├── index.js
+├── package-lock.json
+├── package.json
+└── src
+    ├── auth
+    │   ├── handlers.js
+    │   ├── index.js
+    │   └── middleware
+    │       ├── basic.js
+    │       └── bearer.js
+    ├── controllers
+    │   ├── rest.js
+    │   └── restSearch.js
+    ├── middleware
+    │   └── logger.js
+    └── models
+        ├── RestSchema.js
+        └── userSchema.js
+```
+
+---
+
 ## Endpoints
 
 ### **/restSearch**
