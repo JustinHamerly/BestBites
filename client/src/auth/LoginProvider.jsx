@@ -26,8 +26,8 @@ const LoginProvider = (props) => {
   };
 
   const login = (username, password) => {
-    let auth = {username, password};
-    axios.post(`${server}/signin`, {}, {auth})
+    let auth = base64.encode(username+ ':' + password);
+    axios.post(`${server}/login`, {authorization: `Basic ${auth}`})
       .then(res => validate(res?.data?.token))
       .catch(console.error)
   }
