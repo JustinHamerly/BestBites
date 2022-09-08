@@ -4,6 +4,9 @@ const router = express.Router()
 
 const Restaurant = require('../models/RestSchema');
 
+let bearerAuth = require('../auth/middleware/bearer');
+
+router.use(bearerAuth)
 
 const getRests = async (req, res) => {
   try {
