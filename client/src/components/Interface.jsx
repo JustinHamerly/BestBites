@@ -19,28 +19,36 @@ const Interface = () => {
 
   const searchRest = async (e) => {
     e.preventDefault();
-    const config = {
-      baseURL: `${server}/restSearch`,
-      method: 'get',
-      params: {
-        search: restName,
-        loc: restLoc
-      }
-    }
-
+    
     try {
-      let response = await axios(config);
-      setResults(response.data);
-      setRestLoc('');
-      setRestName('');
-      setShowResults(true);
+      if(restName && restLoc){
+        const config = {
+          baseURL: `${server}/restSearch`,
+          method: 'get',
+          params: {
+            search: restName,
+            loc: restLoc
+          }
+        }
+        let response = await axios(config);
+        setResults(response.data);
+        setRestLoc('');
+        setRestName('');
+        setShowResults(true);
+      }else{
+        alert('provide a name and location before attempting a search')
+      }
     } catch (error) {
       console.log(error.message);
-      setResults('');
-      setRestLoc('');
-      setRestName('');
+      clearSearch();
       handleClose();
     }
+  }
+
+  const clearSearch = () => {
+    setResults('');
+    setRestLoc('');
+    setRestName('');
   }
 
   const handleClose = () => setShowResults(false);
