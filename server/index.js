@@ -7,6 +7,8 @@ const mongoose = require('mongoose');
 const PORT = process.env.PORT;
 
 const logger = require('./src/middleware/logger');
+const notFoundHandler = require('./src/error-handlers/404');
+const errorHandler = require('./src/error-handlers/500');
 
 const authRouter = require('./src/auth/index')
 const restaurantSearch = require('./src/controllers/restSearch');
@@ -31,5 +33,8 @@ app.use(authRouter);
 
 app.use(restaurantSearch);
 app.use(restaurantRoutes);
+
+app.use('*', notFoundHandler);
+app.use(errorHandler);
 
 app.listen(PORT, () => console.log(`App listening on port ${PORT}`));
