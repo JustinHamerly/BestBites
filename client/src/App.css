@@ -7,6 +7,21 @@
   height: 100vh;
 }
 
+#background {
+  /* opacity: 0.75; */
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  max-width: 100%;
+  min-height: 100vh;
+}
+
+.auth {
+  background-color: #dee5e5;
+  border-radius: 10px;
+  width: 100%;
+}
+
 a {
   color: #d64933;
   transition: .5s;
@@ -20,10 +35,20 @@ header {
   width: 100%;
   display: flex;
   justify-content: space-between;
+  color:#dee5e5;
 }
 
 header button {
   width: 220px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  height: 100%;
 }
 
 .loginForm {
@@ -103,6 +128,7 @@ header button {
   background-color: #dee5e5;
   color: #2a2b2e;
 }
+
 .resultsCard img {
   width: 250px;
 }

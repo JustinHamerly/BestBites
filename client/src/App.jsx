@@ -9,15 +9,16 @@ function App() {
   return (
     <LoginProvider>
       <div className="App">
+        <img id="background" src="./images/background.jpg" alt="background"></img>
         <header>
           <h1>BEST BITES</h1>
           <Login />
         </header>
-        <body>
+        <main>
           <Auth>
             <Interface />
           </Auth>
-        </body>
+        </main>
         <footer>
           <a target="_blank" href="https://icons8.com/icon/8439/meal" rel="noreferrer">Meal</a> icon by <a target="_blank" href="https://icons8.com" rel="noreferrer">Icons8</a>
         </footer>

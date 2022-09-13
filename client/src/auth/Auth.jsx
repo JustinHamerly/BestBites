@@ -4,7 +4,6 @@ import { LoginContext } from './LoginProvider';
 const Auth = (props) => {
 
   const context = useContext(LoginContext);
-  console.log(context.loggedIn)
 
   const [render, setRender] = useState(false);
  
