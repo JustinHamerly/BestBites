@@ -23,6 +23,7 @@ const LoginForm = (props) => {
         placeholder="password">
       </Form.Control>
       <Button type="submit" size="md">Login</Button>
+      <Button onClick={()=>props.setShowRegister(true)}>Sign Up</Button>
     </Form>
   )
 }

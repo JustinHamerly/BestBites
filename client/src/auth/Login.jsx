@@ -36,10 +36,7 @@ const Login = () => {
         context.loggedIn ?
           <Button onClick={() => context.logout()}>LOGOUT</Button>
           :
-          <>
-            <LoginForm user={user} handleChange={handleChange} handleSubmit={handleSubmit} />
-            <Button onClick={()=>setShowRegister(true)}>Sign Up</Button>
-          </>
+          <LoginForm user={user} handleChange={handleChange} handleSubmit={handleSubmit} setShowRegister={setShowRegister} />
       }
       <Modal id="signUpModal" show={showRegister} onHide={handleCloseRegister}>
         <Modal.Header closeButton>
