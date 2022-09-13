@@ -6,6 +6,8 @@
 
 [Client Documentation](./client/README.md)
 
+[Deployed App](https://best-bites.netlify.app/);
+
 ### V.1.0.0
 
 ---

@@ -42,16 +42,19 @@
 ├── package.json
 └── src
     ├── auth
-    │   ├── handlers.js
-    │   ├── index.js
-    │   └── middleware
-    │       ├── basic.js
-    │       └── bearer.js
+    │   ├── handlers.js
+    │   ├── index.js
+    │   └── middleware
+    │       ├── basic.js
+    │       └── bearer.js
     ├── controllers
-    │   ├── rest.js
-    │   └── restSearch.js
+    │   ├── rest.js
+    │   └── restSearch.js
+    ├── error-handlers
+    │   ├── 404.js
+    │   └── 500.js
     ├── middleware
-    │   └── logger.js
+    │   └── logger.js
     └── models
         ├── RestSchema.js
         └── userSchema.js

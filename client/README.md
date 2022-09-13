@@ -35,20 +35,28 @@
 .
 ├── LICENSE
 ├── README.md
-├── index.html
 ├── package-lock.json
 ├── package.json
 ├── public
-│   └── vite.svg
-├── src
-│   ├── App.jsx
-│   ├── auth
-│   │   ├── Auth.jsx
-│   │   ├── Login.jsx
-│   │   └── LoginProvider.jsx
-│   ├── index.css
-│   └── main.jsx
-└── vite.config.js
+│   ├── images
+│   │   └── background.jpg
+│   ├── index.html
+│   └── meal-favicon.png
+└── src
+    ├── App.css
+    ├── App.jsx
+    ├── auth
+    │   ├── Auth.jsx
+    │   ├── Login.jsx
+    │   ├── LoginForm.jsx
+    │   ├── LoginProvider.jsx
+    │   └── SignUpForm.jsx
+    ├── components
+    │   ├── Interface.jsx
+    │   ├── SearchBar.jsx
+    │   └── SearchResultsModal.jsx
+    ├── index.css
+    ├── index.js
 ```
 
 ---
