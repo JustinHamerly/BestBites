@@ -6,14 +6,12 @@ import axios from "axios";
 const server = import.meta.env.VITE_SERVER;
 
 const SignUpForm = (props) => {
-  const [username, setUsername] = useState('')
-  const [password, setPassword] = useState('');
-  const [passwordV, setPasswordV] = useState('');
+  const [form, setForm] = useState({username: '', password: '', passwordV: ''})
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if(password === passwordV && username && password){
-      handleRegister(username, password)
+    if(form.password === form.passwordV && form.username && form.password){
+      handleRegister(form.username, form.password)
     }
   }
 
@@ -33,33 +31,35 @@ const SignUpForm = (props) => {
       props.close();
     } catch (error) {
       console.error(error.message);
-      setRegisterError(true);
     }
   }
 
   return (
     <Form onSubmit={handleSubmit}>
       <Form.Control
-        onChange={(e) => setUsername(e.target.value)}
+        onChange={(e) => setForm({...form, username: e.target.value})}
         size="md"
         name="username"
         type="text"
+        value={form.username}
         autoComplete="email"
         placeholder="email">
       </Form.Control>
       <Form.Control
-        onChange={(e) => setPassword(e.target.value)}
+        onChange={(e) => setForm({...form, password: e.target.value})}
         size="md"
         name="password"
         type="password"
+        value={form.password}
         autoComplete="new-password"
         placeholder="Password">
       </Form.Control>
       <Form.Control
-        onChange={(e) => setPasswordV(e.target.value)}
+        onChange={(e) => setForm({...form, passwordV: e.target.value})}
         size="md"
         name="passwordVerify"
         type="password"
+        value={form.passwordV}
         autoComplete="new-password"
         placeholder="Verify Password">
       </Form.Control>

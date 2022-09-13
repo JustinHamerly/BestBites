@@ -59,7 +59,6 @@ const LoginProvider = (props) => {
       }
     } catch (error) {
       logout();
-      console.log('Unable to validate token', error.message)
     }
   }
 
