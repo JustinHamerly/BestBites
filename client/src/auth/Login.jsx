@@ -10,12 +10,13 @@ const Login = () => {
 
   const context = useContext(LoginContext);
 
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState({username: '', password: ''});
   const [showRegister, setShowRegister] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     handleLogin(user);
+    setUser({username: '', password: ''});
   }
 
   const handleChange = (e) => {
@@ -25,7 +26,6 @@ const Login = () => {
 
   const handleLogin = (userObj) => {
     context.login(userObj.username, userObj.password);
-    setUser({});
   }
 
   const handleCloseRegister = () => setShowRegister(false);

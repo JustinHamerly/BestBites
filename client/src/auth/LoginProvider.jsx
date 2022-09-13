@@ -31,8 +31,8 @@ const LoginProvider = (props) => {
       let res = await axios.post(`${server}/login`, {}, {auth: {username, password}});
       validate(res?.data?.token);
     } catch (error) {
-      console.warn('bad password:', error.message);
-      alert(`wrong password, try again`, error.message)
+      console.warn('bad login');
+      alert(`bad login, try again`)
     }
       // .then(res => validate(res?.data?.token))
       // .catch(console.error)
@@ -59,7 +59,6 @@ const LoginProvider = (props) => {
       }
     } catch (error) {
       logout();
-      console.log('Unable to validate token', error.message)
     }
   }
 
