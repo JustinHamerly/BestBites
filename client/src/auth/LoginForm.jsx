@@ -3,7 +3,7 @@ import { Button, Form } from 'react-bootstrap';
 
 const LoginForm = (props) => {
   return (
-    <Form onSubmit={props.handleSubmit}>
+    <Form className="loginForm" onSubmit={props.handleSubmit}>
       <Form.Control
         onChange={props.handleChange}
         size="md"

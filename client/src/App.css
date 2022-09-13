@@ -1,38 +1,108 @@
 .App {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
   text-align: center;
+  height: 100vh;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+a {
+  color: #d64933;
+  transition: .5s;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+a:hover {
+  color: #5e807f
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+header button {
+  width: 100px;
+}
+
+.loginForm {
+  display: flex;
+  width: 600px;
+  height: 50px;
+  margin: 10px;
+}
+
+.loginForm input {
+  margin: 0 5px;
+}
+
+.loginForm button {
+  margin: 0 5px;
+}
+
+
+
+.signupForm {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+}
+
+.modal-content {
+  background-color: #dee5e5;
+}
+
+.modal-header {
+  color: #5e807f
+}
+
+.modal-body button{
+  margin-top: 20px;
+  background-color: #dee5e5;
+  transition: .5s;
+  border: 0;
+  border-radius: 10px;
+  height: 50px;
+}
+
+.modal-body button:hover {
+  background-color: #d64933;
+}
+
+.modal-body input {
+  margin: 5px 0;
+}
+
+#signUpModal {
+  width: 250px;
+}
+
+.modal-body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between;
+  height: 100%;
 }
 
-.App-link {
-  color: #61dafb;
+#results {
+  width: 100%;
+  background-color: #d64933;
+  border-radius: 10px;
+  color: #f4f6f6;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.resultsCard {
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px;
+  background-color: #dee5e5;
+  color: #2a2b2e;
+}
+.resultsCard img {
+  width: 250px;
 }

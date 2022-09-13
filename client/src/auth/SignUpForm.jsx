@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Button, Form } from 'react-bootstrap';
+import { Form } from 'react-bootstrap';
 
 import axios from "axios";
 
@@ -35,7 +35,7 @@ const SignUpForm = (props) => {
   }
 
   return (
-    <Form onSubmit={handleSubmit}>
+    <Form className="signupForm" onSubmit={handleSubmit}>
       <Form.Control
         onChange={(e) => setForm({...form, username: e.target.value})}
         size="md"
@@ -63,7 +63,7 @@ const SignUpForm = (props) => {
         autoComplete="new-password"
         placeholder="Verify Password">
       </Form.Control>
-      <Button type="submit">Sign Up</Button>
+      <button type="submit">Sign Up</button>
     </Form>
   )
 }

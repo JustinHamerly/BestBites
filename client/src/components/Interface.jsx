@@ -68,7 +68,7 @@ const Interface = () => {
         <p>restaurant display</p>
       </div>
 
-      <Modal show={showResults} onHide={handleClose}>
+      <Modal id="resultsModal" show={showResults} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Search Results</Modal.Title>
         </Modal.Header>
