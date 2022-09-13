@@ -1,16 +1,16 @@
-import React, { useContext, useState } from 'react'
+import React, { useState } from 'react'
 import axios from "axios";
 import { Modal, Button } from 'react-bootstrap';
 
-import { LoginContext } from '../auth/LoginProvider';
+// import { LoginContext } from '../auth/LoginProvider';
 import SearchBar from './SearchBar';
 import SearchResultsModal from './SearchResultsModal';
 
-const server = import.meta.env.VITE_SERVER;
+const server = process.env.REACT_APP_SERVER;
 
 const Interface = () => {
 
-  const context = useContext(LoginContext);
+  // const context = useContext(LoginContext);
 
   const [restName, setRestName] = useState('')
   const [restLoc, setRestLoc] = useState('');

@@ -1,9 +1,9 @@
-import React, { createContext, useState, useEffect } from "react";
+import React, { createContext, useState, useEffect, useCallback } from "react";
 import cookie from 'react-cookies';
 import jwt_decode from "jwt-decode";
 import axios from "axios";
 
-const server = import.meta.env.VITE_SERVER;
+const server = process.env.REACT_APP_SERVER;
 
 export const LoginContext = createContext();
 
@@ -13,13 +13,6 @@ const LoginProvider = (props) => {
   const [user, setUser] = useState({});
   const [token, setToken] = useState(null);
 
-  useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const loadToken = cookie.load('auth');
-    const retreivedToken = params.get('token') || loadToken || null;
-
-    validate(retreivedToken);
-  }, [])
 
   //future role based access control
   // const canProceed = (capability) => {
@@ -28,18 +21,14 @@ const LoginProvider = (props) => {
 
   const login = async (username, password) => {
     try {
-      let res = await axios.post(`${server}/login`, {}, {auth: {username, password}});
+      let res = await axios.post(`${server}/login`, {}, { auth: { username, password } });
       validate(res?.data?.token);
     } catch (error) {
       console.warn('bad login');
       alert(`bad login, try again`)
     }
-      // .then(res => validate(res?.data?.token))
-      // .catch(console.error)
-  }
-
-  const logout = () => {
-    handleLogin(false, {}, null);
+    // .then(res => validate(res?.data?.token))
+    // .catch(console.error)
   }
 
   const handleLogin = (l, u, t) => {
@@ -49,12 +38,17 @@ const LoginProvider = (props) => {
     setToken(t);
   }
 
+  const logout = () => {
+    handleLogin(false, {}, null);
+  }
+
+
   const validate = (token) => {
     try {
       const userObj = jwt_decode(token);
-      if(userObj){
+      if (userObj) {
         handleLogin(true, userObj, token);
-      }else{
+      } else {
         logout();
       }
     } catch (error) {
@@ -62,8 +56,16 @@ const LoginProvider = (props) => {
     }
   }
 
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const loadToken = cookie.load('auth');
+    const retreivedToken = params.get('token') || loadToken || null;
+
+    validate(retreivedToken);
+  }, [])
+
   return (
-    <LoginContext.Provider value={{loggedIn, user, token, login, logout}}>
+    <LoginContext.Provider value={{ loggedIn, user, token, login, logout }}>
       {props.children}
     </LoginContext.Provider>
   )

@@ -3,7 +3,7 @@ import { Button, Form } from 'react-bootstrap';
 
 import axios from "axios";
 
-const server = import.meta.env.VITE_SERVER;
+const server = process.env.REACT_APP_SERVER;
 
 const SignUpForm = (props) => {
   const [form, setForm] = useState({username: '', password: '', passwordV: ''})

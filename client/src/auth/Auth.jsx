@@ -1,13 +1,14 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useState, useMemo } from 'react';
 import { LoginContext } from './LoginProvider';
 
 const Auth = (props) => {
 
   const context = useContext(LoginContext);
+  console.log(context.loggedIn)
 
   const [render, setRender] = useState(false);
-
-  const checkRender = () => {
+ 
+  useEffect(() => {
     try {
       setRender(context.loggedIn);
       // future access control
@@ -16,10 +17,6 @@ const Auth = (props) => {
       // console.log(context.canProceed(props.capability));
       console.warn('Not Authorized');
     }
-  }
-
-  useEffect(() => {
-    checkRender();
   }, [context.loggedIn])
 
 
