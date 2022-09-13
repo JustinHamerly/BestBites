@@ -18,7 +18,7 @@ const LoginForm = (props) => {
         value={props.user.password}
         size="md"
         name="password"
-        type="text"
+        type="password"
         autoComplete="current-password"
         placeholder="password">
       </Form.Control>
