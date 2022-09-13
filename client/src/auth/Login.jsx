@@ -41,7 +41,7 @@ const Login = () => {
             <Button onClick={()=>setShowRegister(true)}>Sign Up</Button>
           </>
       }
-      <Modal show={showRegister} onHide={handleCloseRegister}>
+      <Modal id="signUpModal" show={showRegister} onHide={handleCloseRegister}>
         <Modal.Header closeButton>
           <Modal.Title>Create an Account</Modal.Title>
         </Modal.Header>
