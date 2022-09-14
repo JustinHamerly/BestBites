@@ -6,7 +6,7 @@
 
 [Client Documentation](./client/README.md)
 
-[Deployed App](https://best-bites.netlify.app/);
+[Deployed App](https://best-bites.netlify.app/)
 
 ### V.1.0.0
 
@@ -35,6 +35,8 @@ A one stop shop for decision making when unsure of where to eat tonight.  For ti
 ---
 
 ### USER STORIES
+
+<!-- user stories will go here -->
 
 ---
 

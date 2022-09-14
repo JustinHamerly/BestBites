@@ -85,16 +85,14 @@
 
 ## Functions
 
-## Authentication/Authorization Functions
+### Authentication/Authorization Functions
 
-- **handleLogin** - passes username and password from a user object to the login function handled by the LoginProvider.
+|Function Name|Description|
+|:--|:--|
+|handleLogin|passes username and password from a user object to the login function handled by the LoginProvider.|
+|login|a post request to the server using username and password.  validates the token from the response with the validate function.|
+|handleLogin|saves the token using react-cookies and a state setter for logged in state, user email and token.|
+|logout|clears the loggedIn state, username and token.|
+|validate|decodes the token.  If it is valid the user will be logged in, otherwise the state is cleared with the logout function.|
+|handleRegister|accepts a username and password as an argument.  Makes a post request to the server which creates a user object if the email is not already in the database.  Proceeds to log in that user with the login function.|
 
-- **login** - a post request to the server using username and password.  validates the token from the response with the validate function.
-
-- **handleLogin** - saves the token using react-cookies and a state setter for logged in state, user email and token.
-
-- **logout** - clears the loggedIn state, username and token.
-
-- **validate** - decodes the token.  If it is valid the user will be logged in, otherwise the state is cleared with the logout function.
-
-- **handleRegister** - accepts a username and password as an argument.  Makes a post request to the server which creates a user object if the email is not already in the database.  Proceeds to log in that user with the login function.
