@@ -61,8 +61,40 @@
 
 ---
 
-## State
+## Components
+
+### Authentication/Authorization
+
+|Component|Description|Functions|React Hooks|
+|:--|:--|:--|:--|
+|Auth|A wrapper for other components that checks the logged in state.  Renders children if a user is logged in.|n/a|useEffect, useState, useContext|
+|Login|Renders the LoginForm if not logged in, and the logout button if logged in.  Also, houses the SignUpForm modal.|handleLogin|useState, useContect|
+|LoginForm|A form with inputs for email and password, as well as a register button|n/a|n/a|
+|LoginProvider|A wrapper providing context to the entire App for loggedIn state, user email and authentication token.  Also passes down the logout and login functions.|login, handleLogin, logout, validate|createContext, useState, useEffect|
+|SignUpForm|A form accepting a username and two passwords that need to match|handleRegister|useState|
+
+### App Interface
+
+|Component|Description|Functions|
+|:--|:--|:--|
+|Interface|
+|SearchBar|
+|SearchResultsModal|
 
 ---
 
 ## Functions
+
+## Authentication/Authorization Functions
+
+- **handleLogin** - passes username and password from a user object to the login function handled by the LoginProvider.
+
+- **login** - a post request to the server using username and password.  validates the token from the response with the validate function.
+
+- **handleLogin** - saves the token using react-cookies and a state setter for logged in state, user email and token.
+
+- **logout** - clears the loggedIn state, username and token.
+
+- **validate** - decodes the token.  If it is valid the user will be logged in, otherwise the state is cleared with the logout function.
+
+- **handleRegister** - accepts a username and password as an argument.  Makes a post request to the server which creates a user object if the email is not already in the database.  Proceeds to log in that user with the login function.
