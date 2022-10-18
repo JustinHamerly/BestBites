@@ -1,7 +1,7 @@
-import LoginProvider from "./auth/LoginProvider";
-import Auth from "./auth/Auth";
-import Login from './auth/Login'
-import Interface from "./components/Interface";
+import LoginProvider from './auth/LoginProvider';
+import Auth from './auth/Auth';
+import Header from './components/Header'
+import Interface from './components/Interface';
 import './App.css'
 
 function App() {
@@ -9,11 +9,7 @@ function App() {
   return (
     <LoginProvider>
       <div className="App">
-        <img id="background" src="./images/background.jpg" alt="background"></img>
-        <header>
-          <h1>BEST BITES</h1>
-          <Login />
-        </header>
+        <Header />
         <main>
           <Auth>
             <Interface />
