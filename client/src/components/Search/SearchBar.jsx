@@ -4,7 +4,7 @@ import { Form, Button } from 'react-bootstrap';
 
 const SearchBar = (props) => {
   return (
-    <Form onSubmit={props.onSubmit}>
+    <Form onSubmit={props.onSubmit} id="searchBar">
       <Form.Group className="mb-3">
         <Form.Label >Business Name</Form.Label>
         <Form.Control
