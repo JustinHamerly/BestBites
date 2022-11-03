@@ -1,5 +1,4 @@
 import React, { createContext, useState, useEffect } from "react";
-import cookie from 'react-cookies';
 import jwt_decode from "jwt-decode";
 import axios from "axios";
 
@@ -32,7 +31,7 @@ const LoginProvider = (props) => {
   }
 
   const handleLogin = (l, u, t) => {
-    cookie.save('auth', token);
+    localStorage.setItem('bb-auth', t)
     setLoggedIn(l);
     setUser(u);
     setToken(t);
@@ -40,6 +39,7 @@ const LoginProvider = (props) => {
 
   const logout = () => {
     handleLogin(false, {}, null);
+    localStorage.removeItem('bb-auth')
   }
 
 
@@ -58,7 +58,7 @@ const LoginProvider = (props) => {
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
-    const loadToken = cookie.load('auth');
+    const loadToken = localStorage.getItem('bb-auth');
     const retreivedToken = params.get('token') || loadToken || null;
 
     validate(retreivedToken);
