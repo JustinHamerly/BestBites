@@ -1,7 +1,7 @@
 import { BrowserRouter } from 'react-router-dom';
 import LoginProvider from './auth/LoginProvider';
 import Auth from './auth/Auth';
-import Header from './components/Header'
+import Header from './components/Header/Header'
 import Main from './components/Main';
 import './App.css'
 
