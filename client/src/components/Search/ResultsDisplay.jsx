@@ -1,15 +1,14 @@
 import React from 'react'
-import { ListGroup, ListGroupItem } from 'react-bootstrap'
+import SearchResult from './SearchResult'
 
 const ResultsDisplay = (props) => {
   let restaurants = props.results.map(r=>(
-    <ListGroup key={r.yelpid}>
-      <ListGroupItem>{r.name}</ListGroupItem>
-      <ListGroupItem>{r.location.address1}</ListGroupItem>
-    </ListGroup>
+    <SearchResult key={r.yelpid} restaurant={r} />
   ))
   return (
-    <div>{restaurants}</div>
+    <div id="resultsDisplay">
+      {restaurants}
+    </div>
   )
 }
 
