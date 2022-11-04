@@ -5,6 +5,7 @@ import SearchBar from './SearchBar';
 import ResultsDisplay from './ResultsDisplay';
 
 
+
 const SearchInterface = (props) => {
   const [restName, setRestName] = useState('')
   const [restLoc, setRestLoc] = useState('');
@@ -60,7 +61,6 @@ const SearchInterface = (props) => {
       { showResults &&
         <ResultsDisplay
           results={results}
-          addRest={props.addRest}
         />
       }
     </div>

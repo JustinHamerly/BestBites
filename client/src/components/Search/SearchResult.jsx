@@ -1,8 +1,9 @@
 import React, {useContext} from 'react'
 import { LoginContext } from '../../auth/LoginProvider';
-
+import { RestContext } from '../restContext/RestProvider'
 const SearchResult = (props) => {
   const context = useContext(LoginContext);
+  const restContext = useContext(RestContext)
   const handleAdd = () => {
     const restObj = {
       name: props.restaurant.name,
@@ -15,7 +16,7 @@ const SearchResult = (props) => {
       location: props.restaurant.location,
       email: context.user.username,
     } 
-    props.addRest(restObj, context.token);
+    restContext.addRest(restObj);
   }
 
   return (

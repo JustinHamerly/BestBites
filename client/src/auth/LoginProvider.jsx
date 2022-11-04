@@ -12,12 +12,6 @@ const LoginProvider = (props) => {
   const [user, setUser] = useState({});
   const [token, setToken] = useState(null);
 
-
-  //future role based access control
-  // const canProceed = (capability) => {
-  //   return user?.capabilities?.includes(capability)
-  // };
-
   const login = async (username, password) => {
     try {
       let res = await axios.post(`${server}/login`, {}, { auth: { username, password } });
