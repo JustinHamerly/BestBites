@@ -138,18 +138,29 @@ main {
   width: 95%;
   height: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
 #searchBar{
   margin: auto;
-  width: 45%;
+  width: 95%;
+  max-width: 400px;
+  margin: 10px;
+  background-color: #2a2b2e;
+  padding: 5px;
+  border-radius: 5px;
+  color:#dee5e5;
 }
 
 #resultsDisplay{
-  margin: auto;
-  width: 45%;
-  height: 100%;
+  max-width: 400px;
+  padding: 5px;
+  border-radius: 5px;
+  margin: 10px;
+  width: 95%;
+  background-color: #2a2b2e;
   overflow-y: scroll;
   scrollbar-color: rebeccapurple green;
   scrollbar-width: thin;

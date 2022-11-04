@@ -50,7 +50,7 @@ const RestProvider = (props) => {
     if(login.user.username){
       fetchRests()
     }
-  }, [])
+  }, [login])
   
 
   return (
