@@ -29,6 +29,13 @@ const RestProvider = (props) => {
 
   const addRest = async (r) => {
     try {
+      console.log(restaurants)
+      const duplicate = restaurants.some(rest => rest.yelpId === r.yelpId);
+      console.log(duplicate);
+      if(duplicate) {
+        console.log('duplicate restaurant');
+        return;
+      }
       const newRest = await axios({
         url: `${process.env.REACT_APP_SERVER}/rest`,
         method: 'post',
@@ -46,7 +53,6 @@ const RestProvider = (props) => {
   }
 
   useEffect(() => {
-    console.log('useeffecthit')
     if(login.user.username){
       fetchRests()
     }
