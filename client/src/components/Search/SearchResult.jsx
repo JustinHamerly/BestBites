@@ -24,7 +24,7 @@ const SearchResult = (props) => {
       <h2>{props.restaurant.name}</h2>
       <p>{props.restaurant.location.address1}</p>
       <div id="buttons">
-        <button>Details</button>
+        <button onClick={props.handleSelect}>Details</button>
         <button onClick={handleAdd}>Add</button>
       </div>
     </div>

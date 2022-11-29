@@ -46,7 +46,6 @@ const RestProvider = (props) => {
   }
 
   useEffect(() => {
-    console.log('useeffecthit')
     if(login.user.username){
       fetchRests()
     }
