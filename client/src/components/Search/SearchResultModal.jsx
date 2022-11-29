@@ -10,17 +10,27 @@ const SearchResultModal = ({ show, hideResultModal, r }) => {
       <Modal.Body>
 
         <Image src={r.img} fluid className='searchModalImage' />
-        <ul id='categoryList'>
-          {r.categories && r.categories.map((c, i) => {
-            return <li key={i}>{c.title}</li>
-          })}
-        </ul>
-        <p>Price: {r.price && r.price.split('').map(c=>{return '💲'}).join('')}</p>
-        {console.log(r)}
+        <div id='categories'>
+          <h3>Restaurant Categories</h3>
+          <ul id='categoryList'>
+            {r.categories && r.categories.map((c, i) => {
+              return <li key={i}>{c.title}</li>
+            })}
+          </ul>
+        </div>
+        {r.location &&
+          <div id='address'>
+            <h3>Address</h3>
+            <p>{r.location.display_address[0]}</p>
+            <p>{r.location.display_address[1]}</p>
+          </div>
+        }
+        <h3>Price: {r.price && r.price.split('').map(c => '💲').join('')}</h3>
       </Modal.Body>
       <Modal.Footer>
         <Button>Add Restaurant</Button>
-        <Button>Close</Button>
+        <Button onClick={() => window.open(r.url, '_blank')}>Yelp</Button>
+        <Button onClick={hideResultModal}>Close</Button>
       </Modal.Footer>
     </Modal>
   )

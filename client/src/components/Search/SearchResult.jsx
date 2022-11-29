@@ -16,6 +16,7 @@ const SearchResult = (props) => {
       location: props.restaurant.location,
       email: context.user.username,
     } 
+    
     restContext.addRest(restObj);
   }
 
